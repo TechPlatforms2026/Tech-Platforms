@@ -1,0 +1,6 @@
+{
+  "name": "TechCore",
+  "description": "AI destekli teknoloji forumu, canlı sohbet moderasyonu, dosya güvenlik tarayıcısı ve gerçek e-posta doğrulama platformu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

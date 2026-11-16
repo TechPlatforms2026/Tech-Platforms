@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="tr" class="dark" style="background-color: #090D16; color: #F1F5F9;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#090D16" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="TechCore" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <title>TechCore — Teknoloji Forumu, AI Güvenlik ve E-Posta Doğrulama</title>
+    <meta name="description" content="AI destekli teknoloji forumu, canlı sohbet moderasyonu, dosya güvenlik tarayıcısı ve gerçek e-posta doğrulama platformu." />
+    <meta property="og:title" content="TechCore — Teknoloji Forumu, AI Güvenlik ve E-Posta Doğrulama" />
+    <meta property="og:description" content="AI destekli teknoloji forumu, canlı sohbet moderasyonu, dosya güvenlik tarayıcısı ve gerçek e-posta doğrulama platformu." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body, #root {
+        background-color: #090D16;
+        color: #F1F5F9;
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      }
+      .tc-boot-splash {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background: radial-gradient(circle at top, rgba(14, 165, 233, 0.14), transparent 55%), #090D16;
+        padding: 24px;
+        text-align: center;
+      }
+      .tc-boot-logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+        color: #090D16;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: 0.04em;
+        box-shadow: 0 0 32px rgba(56, 189, 248, 0.25);
+      }
+      .tc-boot-text {
+        font-size: 13px;
+        color: #94A3B8;
+        letter-spacing: 0.02em;
+      }
+    </style>
+    <script>
+      (function () {
+        var recoveredKey = 'tc_chunk_recovered';
+        function recoverFromBrokenBundle() {
+          try {
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.getRegistrations().then(function (regs) {
+                regs.forEach(function (r) { r.unregister(); });
+              });
+            }
+            if ('caches' in window) {
+              caches.keys().then(function (keys) {
+                keys.forEach(function (k) { caches.delete(k); });
+              });
+            }
+          } catch (_) {}
+          if (!sessionStorage.getItem(recoveredKey)) {
+            sessionStorage.setItem(recoveredKey, '1');
+            setTimeout(function () { window.location.reload(); }, 120);
+            return;
+          }
+          var root = document.getElementById('root');
+          if (root && root.querySelector('.tc-boot-splash')) {
+            root.innerHTML =
+              '<div class="tc-boot-splash">' +
+              '<div class="tc-boot-logo">TC</div>' +
+              '<div style="color:#fff;font-size:18px;font-weight:700;">Güncelleme Algılandı</div>' +
+              '<div class="tc-boot-text" style="max-width:340px;">Yeni sürüm yüklenirken tarayıcı önbelleği sıfırlanıyor. Lütfen yenileyin.</div>' +
+              '<button onclick="sessionStorage.clear();location.reload(true);" style="background:#38BDF8;color:#090D16;border:0;border-radius:10px;padding:10px 20px;font-weight:700;cursor:pointer;">Sayfayı Yenile</button>' +
+              '</div>';
+          }
+        }
+        window.addEventListener('error', function (e) {
+          var target = e && e.target;
+          if (target && (target.tagName === 'SCRIPT' || target.tagName === 'LINK')) {
+            recoverFromBrokenBundle();
+          }
+        }, true);
+        window.addEventListener('unhandledrejection', function (e) {
+          var msg = (e && e.reason && (e.reason.message || String(e.reason))) || '';
+          if (/Failed to fetch dynamically imported module|Importing a module script failed|ChunkLoadError/i.test(msg)) {
+            recoverFromBrokenBundle();
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body class="bg-[#090D16] text-slate-100 antialiased selection:bg-sky-500/30 selection:text-sky-100" style="background-color: #090D16; color: #F1F5F9;">
+    <div id="root">
+      <div class="tc-boot-splash">
+        <div class="tc-boot-logo">TC</div>
+        <div class="tc-boot-text">TechCore başlatılıyor...</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
